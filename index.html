@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="http://www.softwhy.com/" />
+<title>homepage</title>
+<style>
+	
+body{
+	background: url("11.jpg");
+		
+	}
+html, div, h2, p,body {
+  margin: 0;
+  padding: 0;
+}
+
+.wrap {
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  overflow: hidden;
+  margin-top: 0px;
+	margin-bottom: 100px;
+	margin-right: 300px;
+	margin-left: 300px;
+  float: left;
+	
+}
+.img {
+  background: url("11.jpg") center;
+  background-size: 200px;
+}
+.shadow {
+  width: 160px;
+  height: 160px;
+  border-radius: 160px;
+  background: #fff;
+  margin: 20px;
+  box-shadow: 0 0 0 20px rgba(255,255,255,.4);
+  transition: box-shadow 0.5s ease-in-out;
+}
+.photo {
+  width: 160px;
+  height: 160px;
+  position: relative;
+}
+.front, .back {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 160px;
+  overflow: hidden;
+  transform-style: preverve-3d;
+  backface-visibility: hidden;
+  transition: transform 0.5s ease-in-out;
+}
+.back {
+  background: #ff0b40;
+  text-align: center;
+  color: #fff;
+}
+.back h2 {
+  font-size: 22px;
+  padding: 25px 0 35px 0;
+  margin: 0 15px;
+  border-bottom: 1px solid #fff;
+}
+.back p {
+  font-size: 15px;
+  margin-top: 10px;
+}
+.wrap .front {
+  transform: rotateY(0deg);
+}
+.wrap .back {
+  transform: rotateY(180deg);
+}
+.wrap:hover .front {
+  transform: rotateY(180deg);
+}
+.wrap:hover .back {
+  transform: rotateY(0deg);
+}
+.wrap:hover .shadow {
+  box-shadow: 0 0 0 0 rgba(255,255,255,.4);
+}
+	
+.nav {
+  width: 700px;
+  height: 40px;
+  margin: 200px auto;
+}
+.nav a {
+  position: relative;
+  display: inline-block;
+  padding: 20px;
+  text-decoration: none;
+  color: #999;
+  font-size: 18px;
+  font-weight: 700;
+  padding-bottom: 8px;
+}
+.nav a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 40%;
+  right: 40%;
+  width: 20%;
+  border-bottom: 3px solid #6bc30d;
+  opacity: 0.5;
+  transition: all linear 0.5s;
+}
+.nav a:hover {
+  color: #fff;
+}
+.nav a:hover:after {
+  left: 0;
+  width: 100%;
+  opacity: 1.0;
+  transition: all linear 0.5s;
+}
+	
+.set {
+  position: relative;
+  font-weight: 400;
+  text-align: center;
+  width: 200px;
+  line-height: 45px;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  color:#92E0A1;
+  background: #b9ccd2;
+  cursor: pointer;
+  float: right;
+  margin-top: 10%;
+ }
+  
+.anim {
+  transform: translateY(-50%) translateX(-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+}
+.anim:before {
+  position: relative;
+  content: '';
+  display: block;
+  margin-top: 100%;
+  background: #6CB1FF;
+}
+.anim:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 50%;
+}
+.hoverable:hover > .anim:after {
+  animation: anim-out-pseudo 0.75s;
+}
+.set:hover > .anim {
+  animation: anim-out 0.75s;
+}
+@keyframes anim-out-pseudo {
+  0% {
+    background: rgba(0, 0, 0, 0.25);
+  }
+  100% {
+    background: transparent;
+  }
+}
+@keyframes anim-out {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.zv{	
+	text-decoration:none;
+	color:#D0898A;
+	font-family: 楷体;
+	font-size:18px;	
+	
+}
+		
+</style>
+</head>
+<body>
+  <div class="wrap img">
+    <div class="shadow">
+      <div class="photo">
+        <div class="front img"></div>
+        <div class="back">
+          <h2>水墨山河，诗里乾坤</h2>
+          <p>欢迎您</p>
+        </div>
+      </div>
+    </div>
+  </div>
+	
+<div class="nav">
+    <ul><a href="poem.html">诗词之韵</a></ul>
+    <ul><a href="paint.html">诗画情怀</a></ul>
+    <ul><a href="choice.html">以诗会友</a></ul>
+    <ul><a href="ourself.html">关于我们</a></ul>
+  </div>
+	
+	<div class="set hoverable">
+   <div class="anim"></div>
+   <a href="enter.html" class="zv"><span>退出</span></a>
+</div>
+	
+</body>
+</html>
