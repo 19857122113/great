@@ -1,0 +1,333 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS3点击显示</title>
+<style>
+*{
+	margin:0; 
+	padding:0;
+	}
+html{
+	height:100%;
+	}
+p{ 
+	padding:10px 0; 
+	}
+body{ 
+	min-height:100%; 
+	font-family:arial;
+	position:relative; 
+	}
+body.sideMenu{
+	margin:0; 
+	-webkit-transform:none;
+	transform:none; 
+	}
+#footer {
+		position:relative;
+		bottom:0; left:0;
+		width:100%;
+		height:48px;
+		background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #999), color-stop(0.02, #666), color-stop(1, #222));
+		background-image:-moz-linear-gradient(top, #999, #666 2%, #222);
+		background-image:-o-linear-gradient(top, #999, #666 2%, #222);
+		padding:0;
+		border-top:1px solid #444; transition:0.25s ease-out; -webkit-transition:0.25s ease-out; 
+	}
+#sideToggle{
+	display:none; 
+	}
+#sideToggle:checked + aside{ 
+	left:0; 
+	}
+#sideToggle:checked ~ #wrap{
+	padding-left:220px;
+	}
+#sideToggle:checked ~ #footer{
+	margin-left:200px;
+	}
+body > aside{
+	position:absolute; 
+	top:0; bottom:0; 
+	left:-200px;
+	width:200px; 
+	background:#f1103a; 
+	transition:0.2s ease-out; 
+	-webkit-transition:0.2s ease-out; 
+	}
+body > aside > h2{
+	color:#FFF;
+	text-align:center; 
+	font-weight:normal; 
+	padding:10px;
+	}
+#wrap{
+	margin-left:20px; 
+	padding:10px;
+	transition:0.25s ease-out;
+	-webkit-transition:0.25s ease-out;
+	}
+  #wrap > label{
+	  display:inline-block;
+	}
+    #wrap > label{ 
+      background:#f1103a;
+      border-radius:50px;
+      color: #FFF;
+      cursor: pointer;
+      display: block;
+      font-family: Courier New;
+      font-size: 25px;
+      font-weight: bold;
+      width: 30px;
+      height: 30px;
+      line-height: 35px;
+      text-align: center;
+      text-shadow: 0 -4px;
+    }
+    #wrap > label:hover{ 
+		background:#000; 
+	}
+	
+
+
+a:link {
+  text-decoration:none;
+  color:black;
+}
+a:visited {
+  text-decoration:none;
+  color:white;
+}
+a:hover {
+  text-decoration:underline;
+  color:white;
+}
+a:active {
+  text-decoration:underline;
+  color:white;
+}
+
+
+.carre_couleur{
+  width:200px;
+  height:200px;
+  display:inline-block;
+  position:relative;
+  margin-top:80px;
+	margin-right: 100px;
+}
+	
+.img{
+  width:200px;
+  height:200px;	
+
+}
+.base_hov .retract{
+  transition:all 200ms ease-in;
+  transform-origin:50% 20%;
+  transform:scale(1);
+  width:200px;
+  height:200px;
+  position:absolute;
+  z-index:2;
+  left:0;
+}
+.base_hov:hover .retract{
+  transition:all 200ms ease-in;
+  transform:scale(0.6);
+}
+.acced{
+  width:180px;
+  padding:10px;
+  bottom:0;
+  position:absolute;
+  z-index:1;
+  text-align:left;
+}
+.big_acced{
+  color:#ffffff;
+  font-size:25px;
+  font-weight:400;
+}
+.middle_acced{
+  color:#ffffff;
+  font-size:15px;
+  font-weight:400;
+}
+
+.ly{
+	  margin-top: 100px;	
+	  
+	}
+
+	
+.set {
+  position: relative;
+  font-weight: 400;
+  text-align: center;
+  width: 200px;
+  line-height: 45px;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  color: #FFFFFF;
+  background: #b9ccd2;
+  cursor: pointer;
+  float:right;
+  margin-top: 50px;
+ }
+ 
+.anim {
+  transform: translateY(-50%) translateX(-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+}
+.anim:before {
+  position: relative;
+  content: '';
+  display: block;
+  margin-top: 100%;
+  background: #6CB1FF;
+}
+.anim:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 50%;
+}
+.hoverable:hover > .anim:after {
+  animation: anim-out-pseudo 0.75s;
+}
+.set:hover > .anim {
+  animation: anim-out 0.75s;
+}
+@keyframes anim-out-pseudo {
+  0% {
+    background: rgba(0, 0, 0, 0.25);
+  }
+  100% {
+    background: transparent;
+  }
+}
+@keyframes anim-out {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+	
+.s{
+	color: #FFFFFF;
+	font-family: 楷体;
+	font-size:24px;
+	text-decoration:none;
+		
+	}
+</style>
+</head>
+<body>	
+<input type='checkbox' id='sideToggle'>
+<aside>
+	<h2>Side Menu</h2><br>
+	<a href="ly.html"><p>《游山西村》--陆游</p></a><br><br>
+	<a href="wzh.html"><p>《登鹳雀楼》--王之涣</p></a><br><br>
+	<a href="lb.html"><p>《望天山门》--李白</p></a><br><br>
+	<a href="df.html"><p>《望岳》--杜甫</p></a><br><br>
+	<a href="lzy.html"><p>《江雪》--柳宗元</p></a><br><br>
+	<a href="lb.html"><p>《将进酒》--李白</p></a><br><br>
+	</aside>
+	<div id='wrap'>
+		<label id='sideMenuControl' for='sideToggle'>=</label>
+		<p>诗词之韵  The Rhyme Of Poetry</p>
+		
+	</div>
+	<div id="footer"></div>
+	<div class="a1">
+		
+	<div align="center">
+		
+   <div class="carre_couleur base_hov" style="background-color:#f8b334;"> 
+    <div class="retract" style="background-color:#f8b334;">
+		<a href="ly.html"><img src="23a.jpg"></a>
+    </div>
+    <div class="acced">
+      <div class="big_acced" style="color:#f39c12;">游山西村</div>
+      <div class="middle_acced">——陆游</div>
+    </div>
+  </div>
+		
+	   <div class="carre_couleur base_hov" style="background-color:#f8b334;"> 
+    <div class="retract" style="background-color:#f8b334;">
+		<a href="wzh.html"><img src="36a.jpg"></a>
+    </div>
+    <div class="acced">
+      <div class="big_acced" style="color:#f39c12;">登鹳雀楼</div>
+      <div class="middle_acced">——王之涣</div>
+    </div>
+  </div>
+		
+		 <div class="carre_couleur base_hov" style="background-color:#f8b334;"> 
+    <div class="retract" style="background-color:#f8b334;">
+		<a href="lb.html"><img src="26a.jpg"></a>
+    </div>
+    <div class="acced">
+      <div class="big_acced" style="color:#f39c12;">望天门山</div>
+      <div class="middle_acced">——李白</div>
+    </div>
+  </div>
+		
+</div>
+	
+	
+	<div align="center">
+		
+   <div class="carre_couleur base_hov" style="background-color:#f8b334;"> 
+    <div class="retract" style="background-color:#f8b334;">
+		<a href="df.html"><img src="27a.jpg"></a>
+    </div>
+    <div class="acced">
+      <div class="big_acced" style="color:#f39c12;">望岳</div>
+      <div class="middle_acced">——杜甫</div>
+    </div>
+  </div>
+		
+	   <div class="carre_couleur base_hov" style="background-color:#f8b334;"> 
+    <div class="retract" style="background-color:#f8b334;">
+		<a href="lzy.html"><img src="28a.jpg"></a>
+    </div>
+    <div class="acced">
+      <div class="big_acced" style="color:#f39c12;">江雪</div>
+      <div class="middle_acced">——柳宗元</div>
+    </div>
+  </div>
+		
+		 <div class="carre_couleur base_hov" style="background-color:#f8b334;"> 
+    <div class="retract" style="background-color:#f8b334;">
+		<a href="lb.html"><img src="37a.jpg">
+    </div>
+    <div class="acced">
+      <div class="big_acced" style="color:#f39c12;">将进酒</div>
+      <div class="middle_acced">——李白</div>
+    </div>
+  </div>		
+</div>	
+		
+	<div class="set hoverable">
+  <div class="anim"></div>
+   <a href="homepage.html" class="s"><span>返回首页</span></a>
+</div>	
+		
+</div>
+	
+</body>
+</html>
